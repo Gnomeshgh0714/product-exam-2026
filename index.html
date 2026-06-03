@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026年产品笔试题（A）- 答题卷</title>
+    <style>
+        :root {
+            --bg: #fafbfc;
+            --card-bg: #ffffff;
+            --text: #1a1a2e;
+            --text-secondary: #4a5568;
+            --accent: #2563eb;
+            --accent-light: #dbeafe;
+            --border: #e2e8f0;
+            --tag-bg: #f1f5f9;
+            --highlight: #fef3c7;
+            --code-bg: #1e293b;
+            --success: #059669;
+            --warn: #d97706;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1e1b4b 100%);
+            color: white;
+            padding: 64px 0 48px;
+            margin-bottom: 48px;
+        }
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+        .header .subtitle {
+            font-size: 16px;
+            opacity: 0.75;
+            font-weight: 400;
+        }
+        .header .meta {
+            margin-top: 24px;
+            display: flex;
+            gap: 24px;
+            font-size: 14px;
+            opacity: 0.6;
+        }
+
+        /* Category Sections */
+        .category {
+            margin-bottom: 56px;
+        }
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border);
+        }
+        .category-num {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: var(--accent);
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        .category-title {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+        .category-subtitle {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-left: auto;
+        }
+
+        /* Question Card */
+        .question-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+        .question-card:last-child { margin-bottom: 0; }
+
+        .question-label {
+            display: inline-block;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+        }
+        .question-text {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 24px;
+            padding: 16px 20px;
+            background: #f8fafc;
+            border-left: 4px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            line-height: 1.7;
+        }
+
+        /* Answer Sections */
+        .answer-section h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text);
+            margin: 24px 0 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .answer-section h3:first-child { margin-top: 0; }
+        .answer-section h3::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+        .answer-section p {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+        .answer-section ul, .answer-section ol {
+            margin: 8px 0 16px 20px;
+            color: var(--text-secondary);
+        }
+        .answer-section li {
+            margin-bottom: 8px;
+        }
+        .answer-section strong {
+            color: var(--text);
+        }
+
+        /* Highlight box */
+        .highlight-box {
+            background: var(--highlight);
+            border: 1px solid #fcd34d;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 16px 0;
+            font-size: 15px;
+        }
+        .highlight-box p { color: #92400e !important; margin-bottom: 4px; }
+
+        /* Info box */
+        .info-box {
+            background: var(--accent-light);
+            border: 1px solid #93c5fd;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 16px 0;
+            font-size: 15px;
+        }
+
+        /* Table */
+        .answer-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+        .answer-table th {
+            background: #f1f5f9;
+            text-align: left;
+            padding: 10px 14px;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            font-size: 13px;
+            color: var(--text);
+        }
+        .answer-table td {
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            vertical-align: top;
+        }
+        .answer-table tr:hover td { background: #fafbfc; }
+
+        /* Tag */
+        .tag {
+            display: inline-block;
+            background: var(--tag-bg);
+            color: var(--text-secondary);
+            font-size: 12px;
+            font-weight: 500;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-right: 4px;
+        }
+        .tag.accent {
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+
+        /* Code inline */
+        code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
+            font-family: "JetBrains Mono", "Fira Code", monospace;
+            color: #c7254e;
+        }
+
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin: 16px 0;
+        }
+        .stat-card {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* Flow steps */
+        .flow-steps {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 16px 0;
+        }
+        .flow-step {
+            flex: 1;
+            min-width: 120px;
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 14px;
+            text-align: center;
+            position: relative;
+        }
+        .flow-step .step-num {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            font-weight: 700;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 8px;
+        }
+        .flow-step .step-title {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--text);
+        }
+        .flow-step .step-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 48px 0;
+            color: var(--text-secondary);
+            font-size: 14px;
+            border-top: 1px solid var(--border);
+            margin-top: 48px;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .header { padding: 40px 0 32px; }
+            .header h1 { font-size: 24px; }
+            .question-card { padding: 20px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .flow-steps { flex-direction: column; }
+        }
+
+        @media print {
+            body { background: white; font-size: 13px; }
+            .question-card { box-shadow: none; break-inside: avoid; }
+            .header { background: #1a1a2e !important; -webkit-print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+    <div class="container">
+        <h1>2026年产品笔试题（A）</h1>
+        <p class="subtitle">7 题作答 · 需求分析 / 交互设计 / 数据技术 / 估算 / 统计学 / Agent设计</p>
+        <div class="meta">
+            <span>答题时间：2026年6月</span>
+            <span>形式：HTML 交互式文档</span>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+
+<!-- ==================== 一、需求分析 ==================== -->
+<section class="category">
+    <div class="category-header">
+        <span class="category-num">一</span>
+        <span class="category-title">需求分析</span>
+        <span class="category-subtitle">选择第 1 题</span>
+    </div>
+
+    <div class="question-card">
+        <span class="question-label">题目 1</span>
+        <div class="question-text">
+            举例说明一个你喜欢的产品设计，并阐述这个产品设计解决了用户的什么需求。
+        </div>
+
+        <div class="answer-section">
+            <h3>选择的产品设计：微信读书「热门划线」</h3>
+
+            <p>微信读书的<strong>「热门划线」</strong>功能是我认为最精妙的产品设计之一。用户在阅读时可以对文本划线标记，系统自动聚合所有人的划线数据，将<strong>被多人标记的段落</strong>以虚线下划线+人数角标的形式展示给后来的读者。其他读者点击划线，还能看到他人对这段文字的「想法」评论。</p>
+
+            <h3>这个设计解决了四层需求</h3>
+
+            <table class="answer-table">
+                <thead>
+                    <tr>
+                        <th style="width:18%">需求层次</th>
+                        <th style="width:28%">用户痛点</th>
+                        <th style="width:54%">设计如何解决</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>📖 知识筛选</strong></td>
+                        <td>一本书几十万字，不知道哪些段落是精华</td>
+                        <td>热门划线相当于<strong>众包高亮</strong>——被千人划过的句子，大概率是全书最有价值的观点。读者可以先扫一遍划线快速判断这本书值不值得精读，阅读效率提升显著。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>👥 社交陪伴</strong></td>
+                        <td>阅读是孤独的，缺乏交流感</td>
+                        <td>看到"有 3,241 人划线"的那一刻，读者知道自己不是一个人在读这本书。这是一种<strong>轻量级的共读体验</strong>——不需要加入读书会，不需要发朋友圈，但你知道有三千人和你在同一句话前停留过。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>✍️ 表达与认同</strong></td>
+                        <td>普通读者有表达欲，但没有写书评的能力或精力</td>
+                        <td>划线是<strong>最低门槛的内容创作</strong>。不需要组织语言，手指一划就能参与。当自己的划线被他人看到和点赞时，获得一种"我的品味被认可"的满足感。这比写长书评的心理负担小得多。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>🔗 观点碰撞</strong></td>
+                        <td>读书时产生想法，但无处交流</td>
+                        <td>点击划线可查看他人对同一段落的「想法」评论。这创造了一个<strong>围绕具体文本的微型讨论区</strong>——不是泛泛地聊一本书，而是精确到某一句话的观点交锋。这种颗粒度的讨论在传统书评区是无法实现的。</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <p><strong>为什么这个设计值得赞赏：</strong>它用一个极简单的交互（手指划过屏幕），同时满足了功能性需求（知识筛选）和情感性需求（社交陪伴、表达认同），且几乎不增加用户的认知负担。这就是好设计的标志——用最小的交互成本，撬动最深层的用户动机。</p>
+            </div>
+
+            <h3>更深一层：划线功能的数据飞轮</h3>
+            <p>划线越多 → 后来的读者体验越好（能快速抓住重点）→ 阅读完成率越高 → 更多读者产生划线行为 → 划线数据更丰富。这个正向循环让微信读书的阅读体验随着用户规模增长而持续改善，形成了<strong>网络效应驱动的产品护城河</strong>。</p>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== 二、交互设计 ==================== -->
+<section class="category">
+    <div class="category-header">
+        <span class="category-num">二</span>
+        <span class="category-title">交互设计——Agent时代的生成式界面</span>
+        <span class="category-subtitle">选择微信重设计</span>
+    </div>
+
+    <div class="question-card">
+        <span class="question-label">题目</span>
+        <div class="question-text">
+            选取一个你喜欢的产品，尝试用生成式界面来重新设计它。<br>
+            <span style="font-weight:400;font-size:15px;">选择产品：微信——用生成式界面重新思考「连接」</span>
+        </div>
+
+        <div class="answer-section">
+            <h3>一、微信当前界面的核心矛盾</h3>
+            <p>张小龙的产品哲学是「用完即走」，微信的界面也因此极度克制。但这种克制付出了代价：<strong>大量有价值的功能被深埋</strong>。朋友圈、视频号、搜一搜、小程序——四个发现页入口承载了完全不同的场景，但用户需要在它们之间手动切换。更不用说群收款、接龙、直播、购物等散落在各处的功能。</p>
+
+            <div class="info-box">
+                <p><strong>Agent时代的破局点：</strong>当界面可以按需生成和销毁时，微信不再需要在「简洁」和「强大」之间二选一。界面的控制权从产品经理手中交还给用户当下的意图。</p>
+            </div>
+
+            <h3>二、重新设计：三层界面体系</h3>
+
+            <table class="answer-table">
+                <thead>
+                    <tr>
+                        <th style="width:15%">层级</th>
+                        <th style="width:18%">策略</th>
+                        <th style="width:33%">具体设计</th>
+                        <th style="width:34%">示例场景</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>第一层<br>静态骨架</strong></td>
+                        <td><span class="tag accent">永久保留</span></td>
+                        <td>
+                            ① 聊天列表 — 这是微信的根基，不可替代<br>
+                            ② 通讯录 — 人际关系的数字映射<br>
+                            ③ 「我」的入口 — 身份锚点<br>
+                            <strong>理由：</strong>这三者是微信作为「连接工具」的底层基础设施，用户对它们有稳定的空间记忆，不应动态变化。
+                        </td>
+                        <td>任何时候打开微信，这三个Tab始终存在，给用户确定感。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>第二层<br>对话式界面</strong></td>
+                        <td><span class="tag accent">自然语言驱动</span></td>
+                        <td>
+                            在聊天列表顶部增加一个<strong>Agent对话入口</strong>（类似聊天），用户用自然语言表达意图：<br>
+                            · "帮我找上周三和老板在群里讨论的那份PDF"<br>
+                            · "这周末有什么适合带小孩的活动？"<br>
+                            · "帮我在群里发起一个周六聚餐的投票"<br>
+                            · "最近有什么热门的小程序游戏？"
+                        </td>
+                        <td>用户说"帮我订三张下周去北京的机票"→ Agent自动调用小程序、比价、生成确认卡片，整个过程在对话流中完成。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>第三层<br>动态生成页面</strong></td>
+                        <td><span class="tag accent">用完即销毁</span></td>
+                        <td>
+                            Agent根据上下文<strong>实时生成临时页面</strong>：<br>
+                            · 群收款：自动识别群聊中的AA场景，生成带分摊明细的收款卡片<br>
+                            · 旅行规划：聚合机票、酒店、攻略、群友建议，生成一个临时Dashboard<br>
+                            · 活动报名：自动生成包含时间/地点/人数的报名页<br>
+                            · 文件协作：多人在线编辑的临时工作区<br>
+                            <strong>页面在任务完成后24小时自动销毁。</strong>
+                        </td>
+                        <td>8个朋友在群里讨论周末自驾游 → Agent自动生成「行程规划页」，聚合路线、住宿投票、费用分摊、天气提醒。周日旅行结束后，页面归档摘要到群聊，原页面自动消失。</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>三、朋友圈的生成式重构</h3>
+            <p>当前朋友圈是纯时间线。Agent时代可以变成：</p>
+            <ul>
+                <li><strong>动态摘要模式：</strong>早上打开朋友圈，Agent生成一段自然语言摘要——"你关注的3个好友昨晚发了新动态，其中小明的旅行照片获得了42个赞"</li>
+                <li><strong>意图驱动的Feed：</strong>当你对Agent说"最近有点无聊"，它从朋友圈、视频号、小程序中<strong>动态编织</strong>一个推荐流——不是按时间，而是按你的当下状态。</li>
+                <li><strong>社交雷达：</strong>"最近有谁在学Python？"→ Agent扫描好友动态和收藏，列出相关的人和内容。这是时间线无法实现的查询。</li>
+            </ul>
+
+            <h3>四、为什么这样设计？</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">永久Tab（聊天/通讯录/我）<br>提供确定感</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">1</div>
+                    <div class="stat-label">对话入口<br>承接所有意图</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">∞</div>
+                    <div class="stat-label">动态页面<br>按需生成与销毁</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">功能入口<br>不需要用户记忆</div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>核心设计原则：</strong>静态层给安全感，对话层给灵活性，动态层给能力。用户永远知道"我在哪"（三个Tab），但不需要知道"功能在哪"（Agent替你找到并生成）。微信从「功能超市」变成「智能管家」。</p>
+            </div>
+
+            <h3>五、需要警惕的新问题</h3>
+            <ol>
+                <li><strong>可发现性危机：</strong>功能完全由Agent触发后，用户可能永远不知道某些功能的存在。需要在对话中主动做「能力播报」——类似"顺便说一下，我还可以帮你……"</li>
+                <li><strong>隐私边界模糊：</strong>Agent需要跨聊天、跨朋友圈、跨小程序扫描信息才能智能响应，这和微信一贯的「隐私优先」产生张力。需要设计<strong>细粒度的数据授权</strong>机制。</li>
+                <li><strong>错误容忍度低：</strong>在传统界面中，用户点错可以返回。在生成式界面中，如果Agent理解错了意图，生成的整个页面都是错的。需要<strong>每一步生成都有撤销和纠偏入口</strong>。</li>
+                <li><strong>记忆负担转移：</strong>用户不用记功能位置了，但需要学会如何向Agent描述需求。对于不擅长表达的用户，需要提供引导式对话模板。</li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== 三、数据技术 ==================== -->
+<section class="category">
+    <div class="category-header">
+        <span class="category-num">三</span>
+        <span class="category-title">数据技术类</span>
+        <span class="category-subtitle">选择第 2 题</span>
+    </div>
+
+    <div class="question-card">
+        <span class="question-label">题目 2</span>
+        <div class="question-text">
+            现在上线了一个新的购物Agent，你觉得需要设定哪些指标来监控并且指导后续的迭代？每个指标要如何实现？
+        </div>
+
+        <div class="answer-section">
+            <h3>指标框架总览</h3>
+            <p>购物Agent的核心价值是<strong>降低用户购物决策成本</strong>。指标设计围绕四个维度展开：能不能用（质量）、好不好用（体验）、有没有用（效果）、会不会再用（留存）。</p>
+
+            <table class="answer-table">
+                <thead>
+                    <tr>
+                        <th style="width:12%">维度</th>
+                        <th style="width:18%">指标</th>
+                        <th style="width:30%">定义与计算</th>
+                        <th style="width:20%">实现方式</th>
+                        <th style="width:20%">指导迭代</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="3"><strong>质量<br>能不能用</strong></td>
+                        <td>意图识别准确率</td>
+                        <td>Agent正确理解用户购物意图的比例。<br><code>= 正确识别数 / 总会话数</code></td>
+                        <td>人工标注抽样500条/周，同时用LLM-as-Judge自动评估</td>
+                        <td>低于85% → 优化意图分类模型和Prompt</td>
+                    </tr>
+                    <tr>
+                        <td>任务完成率<br><span class="tag">北极星指标</span></td>
+                        <td>用户从发起到完成有效购物动作（下单/加入心愿单/比价完成）的比例。<br><code>= 有成果的会话 / 总会话数</code></td>
+                        <td>埋点定义「有效成果」事件集合：place_order, add_to_wishlist, compare_done, share_product</td>
+                        <td>核心增长杠杆。拆解各环节流失，定位瓶颈</td>
+                    </tr>
+                    <tr>
+                        <td>首响应时长</td>
+                        <td>用户发送消息到Agent给出第一次有效回复的时间。<br>P50 / P95 / P99</td>
+                        <td>服务端记录消息时间戳差值</td>
+                        <td>P95 > 5秒 → 优化推理链路或模型</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3"><strong>体验<br>好不好用</strong></td>
+                        <td>对话轮次效率</td>
+                        <td>完成任务所需的平均对话轮数。<br><code>= 总轮次 / 完成会话数</code></td>
+                        <td>按会话统计用户消息数（不含系统消息）</td>
+                        <td>轮次上升 → Agent追问过多或推荐不准</td>
+                    </tr>
+                    <tr>
+                        <td>推荐相关性评分</td>
+                        <td>用户对推荐商品的满意度。<br>显式：👍/👎反馈比例<br>隐式：推荐商品点击率</td>
+                        <td>每条推荐卡片埋入反馈按钮；点击率=点击推荐商品数/推荐展示数</td>
+                        <td>相关性低于60% → 优化检索和排序策略</td>
+                    </tr>
+                    <tr>
+                        <td>纠错/重试率</td>
+                        <td>用户在一次会话中否定或纠正Agent的比例。<br><code>= 含纠错行为的会话 / 总会话</code></td>
+                        <td>检测用户消息中的否定关键词（"不对""不是这个""换一批"）</td>
+                        <td>纠错率 > 20% → Agent理解能力不足</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3"><strong>效果<br>有没有用</strong></td>
+                        <td>Agent促成转化率</td>
+                        <td>通过Agent会话进入商品详情页后，在24h内下单的比例。</td>
+                        <td>会话ID关联后续用户行为链路（归因窗口24h）</td>
+                        <td>对比自然转化率，评估Agent增量价值</td>
+                    </tr>
+                    <tr>
+                        <td>客单价增量</td>
+                        <td>Agent促成订单的平均客单价 vs 用户自然浏览下单的客单价。<br><code>= Agent客单价 / 自然客单价 - 1</code></td>
+                        <td>A/A分组对比：使用Agent vs 未使用Agent的同画像用户</td>
+                        <td>若Agent客单价显著更高，说明其推荐能力创造了增量价值</td>
+                    </tr>
+                    <tr>
+                        <td>决策时间缩短比</td>
+                        <td>使用Agent完成购买的平均耗时 vs 传统搜索浏览完成购买的平均耗时。<br><code>= 1 - Agent耗时/传统耗时</code></td>
+                        <td>从会话开始到下单的时间差，对照组取用户搜索+浏览路径总时长</td>
+                        <td>若不能显著缩短决策时间，Agent的核心价值主张不成立</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3"><strong>留存<br>会不会再用</strong></td>
+                        <td>次日/7日/30日留存率</td>
+                        <td>首次使用后第N天再次使用的用户比例。</td>
+                        <td>用户维度统计，首次使用日期为Day0</td>
+                        <td>7日留存 < 20% → 产品未形成使用习惯</td>
+                    </tr>
+                    <tr>
+                        <td>主动唤起率</td>
+                        <td>用户主动打开Agent的比例（非系统推送触发）。</td>
+                        <td>区分入口来源：推送唤起 vs 自主点击</td>
+                        <td>主动唤起率低 → 用户觉得Agent「可有可无」</td>
+                    </tr>
+                    <tr>
+                        <td>分享/推荐率</td>
+                        <td>用户将Agent或Agent推荐的商品分享给好友的比例。</td>
+                        <td>埋点分享事件（含分享渠道）</td>
+                        <td>分享率是NPS的替代指标，高分享=高认可</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>指标体系的使用逻辑</h3>
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="step-num">1</div>
+                    <div class="step-title">质量先行</div>
+                    <div class="step-desc">意图识别率、首响应时长不达标，不进入体验优化</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-num">2</div>
+                    <div class="step-title">体验跟进</div>
+                    <div class="step-desc">对话轮次、推荐相关性达标后，看效果指标</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-num">3</div>
+                    <div class="step-title">效果验证</div>
+                    <div class="step-desc">转化率和决策时间数据决定是否加大投入</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-num">4</div>
+                    <div class="step-title">留存定生死</div>
+                    <div class="step-desc">30日留存是最终裁判，其他指标都是过程指标</div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>关键设计思路：</strong>任务完成率是北极星指标，因为它综合反映了Agent理解能力、推荐质量和用户体验。其他指标都是对它的拆解——完成率低了，沿着意图识别→推荐相关性→对话效率逐层排查。同时保留客单价增量和决策时间缩短比这两个「价值证明」指标，用于向业务方证明Agent不只是好玩，而是真正创造了商业价值。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== 四、估算 ==================== -->
+<section class="category">
+    <div class="category-header">
+        <span class="category-num">四</span>
+        <span class="category-title">估算类</span>
+        <span class="category-subtitle">选择第 2 题</span>
+    </div>
+
+    <div class="question-card">
+        <span class="question-label">题目 2</span>
+        <div class="question-text">
+            请估算2024年11月11号中国家庭进口奶粉购买数量。
+        </div>
+
+        <div class="answer-section">
+            <h3>估算框架：从宏观逐步收敛</h3>
+
+            <div class="info-box">
+                <p><strong>核心公式：</strong>双11进口奶粉购买量 = 有0-3岁婴幼儿的家庭数 × 使用进口奶粉的比例 × 双11参与购买比例 × 双11当天购买占比 × 户均购买罐数</p>
+            </div>
+
+            <h3>Step 1：中国有0-3岁婴幼儿的家庭数量</h3>
+            <ul>
+                <li>2024年中国总人口约 <strong>14.1亿</strong>（国家统计局）</li>
+                <li>2023年出生人口约 <strong>902万</strong>，2022年约956万，2021年约1062万（国家统计局数据）</li>
+                <li>0-3岁婴幼儿总数 ≈ 902 + 956 + 1062 = <strong>约 2,920 万</strong></li>
+                <li>按每个婴幼儿对应1个家庭（不考虑双胞胎简化处理），<strong>有0-3岁婴幼儿的家庭约 2,920 万户</strong></li>
+            </ul>
+
+            <h3>Step 2：进口奶粉的渗透率</h3>
+            <ul>
+                <li>中国婴幼儿奶粉市场中，国产品牌（飞鹤、伊利等）市占率约 <strong>60%</strong>，进口品牌（爱他美、惠氏、美素佳儿、a2等）约 <strong>40%</strong>（Euromonitor 2023年数据）</li>
+                <li>考虑到一线城市进口奶粉偏好更高（约55%）、下沉市场偏好国产（约25%进口），加权后取 <strong>35%</strong> 的婴幼儿家庭使用进口奶粉</li>
+                <li>使用进口奶粉的家庭数 ≈ 2,920万 × 35% = <strong>约 1,022 万户</strong></li>
+            </ul>
+
+            <h3>Step 3：双11的参与率</h3>
+            <ul>
+                <li>奶粉是高频刚需品，且单价高（200-400元/罐），双11囤货动机强</li>
+                <li>参考天猫双11历年参与率数据，母婴品类是Top 3活跃品类之一</li>
+                <li>估算有婴幼儿家庭中，<strong>约65%</strong> 会在双11期间（含预售）购买奶粉</li>
+                <li>双11当天（11月11日）购买占比：双11促销周期约11天（11.1-11.11），但11.11当天是爆发日。参考历年数据，当天GMV约占整个双11周期的 <strong>40-45%</strong></li>
+                <li>取 <strong>40%</strong> 的购买发生在11月11日当天</li>
+            </ul>
+
+            <h3>Step 4：户均购买量</h3>
+            <ul>
+                <li>0-6个月婴儿：纯母乳喂养率约30%（卫健委2022年数据），配方奶粉月消耗约4罐</li>
+                <li>6-12个月：月均消耗约3-4罐</li>
+                <li>1-3岁：月均消耗约2-3罐</li>
+                <li>双11是全年最大囤货节点，用户倾向购买 <strong>1.5-2个月的用量</strong></li>
+                <li>加权平均：户均购买约 <strong>5 罐</strong>（含囤货行为）</li>
+            </ul>
+
+            <h3>Step 5：最终计算</h3>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">2,920万</div>
+                    <div class="stat-label">有0-3岁婴幼儿的家庭</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">× 35%</div>
+                    <div class="stat-label">使用进口奶粉的比例</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">× 65%</div>
+                    <div class="stat-label">双11期间参与购买</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">× 40%</div>
+                    <div class="stat-label">11月11日当天购买占比</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">× 5罐</div>
+                    <div class="stat-label">户均购买罐数</div>
+                </div>
+            </div>
+
+            <div style="text-align:center;margin:24px 0;">
+                <p style="font-size:18px;font-weight:700;">2,920万 × 35% × 65% × 40% × 5 ≈ <span style="font-size:28px;color:#2563eb;">1,329 万罐</span></p>
+                <p style="color:#4a5568;font-size:14px;">估算范围：1,000万 — 1,600万罐（考虑母乳喂养率、区域差异等因素的波动）</p>
+            </div>
+
+            <h3>合理性校验</h3>
+            <ul>
+                <li><strong>市场规模校验：</strong>中国婴幼儿奶粉市场年规模约1,700亿元（Euromonitor 2023），进口约占40%即680亿元。按均价280元/罐计算，年销量约2.4亿罐。双11当天1,329万罐约占全年的 <strong>5.5%</strong>，考虑到双11是全年最大促销节点，这个比例合理。</li>
+                <li><strong>平台数据校验：</strong>天猫双11母婴品类GMV通常占全天猫的8-10%。2024年天猫双11总GMV约5,400亿（星图数据），母婴约432-540亿。进口奶粉是母婴第一大子品类，假设占母婴25%，即108-135亿。按280元/罐，约3,857-4,821万罐（全周期11天）。11.11当天占40%，约1,543-1,928万罐。我们的估算1,329万罐在这个区间的偏低位置（因为天猫只是渠道之一，我们估算的是全渠道），方向一致。</li>
+            </ul>
+
+            <div class="highlight-box">
+                <p><strong>关键假设敏感度分析：</strong>最敏感的参数是「进口奶粉使用比例」（35%）和「双11参与率」（65%）。如果进口比例实际为30%（国产替代趋势加强），则结果下降至约1,140万罐；如果双11参与率为70%，则上升至约1,431万罐。这两个参数的准确性对最终结果影响最大。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== 五、统计学 ==================== -->
+<section class="category">
+    <div class="category-header">
+        <span class="category-num">五</span>
+        <span class="category-title">统计学</span>
+        <span class="category-subtitle">两题必答</span>
+    </div>
+
+    <!-- 题目1：概念解释 -->
+    <div class="question-card">
+        <span class="question-label">题目 1</span>
+        <div class="question-text">
+            请用简洁的非数学语言描述以下概念，并举一个这个概念在产品工作中应用的例子。
+        </div>
+
+        <div class="answer-section">
+            <h3>1. 方差（Standard Deviation）</h3>
+            <p><strong>一句话解释：</strong>方差衡量的是「数据有多分散」——它告诉你，大家是挤在一起，还是散得很开。</p>
+            <p>举个例子：两个班的平均分都是75分，但A班所有人都在70-80分之间，B班有人考30分有人考100分。虽然均值一样，但B班的方差大得多。在产品中，只看平均值是危险的——平均值可能掩盖了用户群体之间的巨大差异。</p>
+            <div class="highlight-box">
+                <p><strong>产品应用：</strong>某视频App发现用户平均观看时长是35分钟/天，看上去不错。但算一下方差发现标准差高达42分钟——说明用户严重两极分化：一部分人几乎不打开（<5分钟），另一部分人重度使用（>2小时）。这个方差信号促使团队将用户分为「待激活」和「深度用户」两个群体，分别设计不同的运营策略，最终整体留存提升了12%。<strong>方差暴露了「平均值的谎言」。</strong></p>
+            </div>
+
+            <h3>2. F1 Score</h3>
+            <p><strong>一句话解释：</strong>F1 Score是「宁可漏掉，还是宁可错杀」这个权衡的平衡点——它在精确率（抓到的有多少是对的）和召回率（该抓的有多少抓到了）之间取调和平均。</p>
+            <div class="highlight-box">
+                <p><strong>产品应用：</strong>内容审核系统需要自动识别违规评论。如果只追求高精确率（宁缺毋滥），会漏掉很多真正的违规内容，社区氛围恶化；如果只追求高召回率（宁可错杀一千），大量正常评论被误删，用户投诉飙升。F1 Score帮助团队找到一个平衡点——比如精确率92%、召回率85%时F1=88.4%，既保护了社区氛围，又控制了误伤率。产品经理用F1而不是单独看精确率或召回率，是因为<strong>两个方向出错都有代价，需要一个统一的优化目标</strong>。</p>
+            </div>
+
+            <h3>3.（加分项）中心极限定理 Central Limit Theorem</h3>
+            <p><strong>一句话解释：</strong>无论原始数据长什么样（偏态的、扁平的、奇形怪状的），只要你反复抽样、计算每次的均值，这些均值的分布会越来越接近一个钟形曲线（正态分布）。这是统计学中最「魔法」的定理——它让混乱的世界变得可以预测。</p>
+            <div class="highlight-box">
+                <p><strong>产品应用：</strong>A/B测试为什么只需要几万用户就能代表几千万用户？因为中心极限定理保证了：样本量足够大时，样本均值的分布趋近正态，我们可以用正态分布的性质来计算置信区间和p值。没有中心极限定理，每次A/B测试都需要对全量用户做实验——这在工程上是不可能的。这也是为什么样本量达到1000+后，即使原始数据（比如用户付费金额）严重右偏，我们仍然可以用t检验来判定实验效果。</p>
+            </div>
+
+            <h3>4.（加分项）贝叶斯定理 Bayes's Theorem</h3>
+            <p><strong>一句话解释：</strong>贝叶斯定理描述的是「当你获得新信息后，如何更新你对某件事的判断」——它不是给你一个绝对答案，而是帮你从先验信念出发，用新证据逐步逼近真相。</p>
+            <div class="highlight-box">
+                <p><strong>产品应用：</strong>电商平台的垃圾评论过滤。先验概率：全站评论中有2%是垃圾评论。当一条评论包含「加微信」这个词时，垃圾评论中有这个词的概率是40%，正常评论中有这个词的概率只有0.1%。用贝叶斯定理更新后，包含「加微信」的评论是垃圾的概率从2%飙升到约89%。产品中实际的垃圾过滤系统就是用朴素贝叶斯分类器，基于多个特征持续更新每条评论是垃圾的概率。<strong>贝叶斯思维的本质是：不追求一次猜对，而是设计一个能持续自我修正的系统。</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 题目2：可用率 -->
+    <div class="question-card">
+        <span class="question-label">题目 2</span>
+        <div class="question-text">
+            对话产品只关注线上用户对话的整体可用率，会导致什么问题？
+        </div>
+
+        <div class="answer-section">
+            <h3>核心回答：整体可用率会掩盖至少四个层面的严重问题</h3>
+
+            <table class="answer-table">
+                <thead>
+                    <tr>
+                        <th style="width:18%">隐藏的问题</th>
+                        <th style="width:42%">具体表现</th>
+                        <th style="width:40%">为什么「整体可用率」看不到</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. 长尾场景的灾难性体验</strong></td>
+                        <td>假设90%的用户问的都是常见问题（查订单、退货、物流），Agent回答得很好。但10%的用户问的是复杂场景（跨境税费计算、组合优惠叠加、预售定金规则），Agent完全无法处理，用户反复转人工失败后愤怒离开。</td>
+                        <td>整体可用率只看全量用户的平均表现。如果90%的简单问题有95%可用率，10%的复杂问题只有20%可用率，整体仍然有 <code>90%×95% + 10%×20% = 87.5%</code>——看起来很健康。但<strong>那10%的用户体验是灾难性的</strong>，而且他们往往是高价值用户（买得多，问题才复杂）。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. 弱势用户群体的系统性忽视</strong></td>
+                        <td>老年用户用方言或不太规范的语言表达需求，Agent理解准确率显著低于年轻用户；视障用户依赖屏幕阅读器，Agent的富文本卡片反而造成信息获取障碍。</td>
+                        <td>这些群体在总用户中占比较小（比如老年用户占5%），即使他们的可用率只有50%，对整体指标的影响也只有2.5个百分点。只看整体可用率，<strong>产品团队永远不会发现自己在系统性歧视某一类用户</strong>。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. 辛普森悖论：趋势完全相反</strong></td>
+                        <td>版本迭代后，整体可用率从85%提升到87%，团队庆祝。但实际上：简单场景可用率从95%降到93%（因为新模型在某些常见query上反而变差了），复杂场景可用率从20%升到30%。整体可用率上升完全是因为复杂场景用户占比下降了（他们之前体验太差，很多人已经弃用了）。</td>
+                        <td>当用户群体构成发生变化时，整体指标的趋势可能和每个子群体的趋势<strong>完全相反</strong>。这就是辛普森悖论。只有拆开看分群指标才能发现真相。</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. 「可用但不解决问题」的伪成功</strong></td>
+                        <td>Agent每次都能正常回复、不报错、语法正确、语气友好——可用率很高。但用户真正想解决的问题（比如「这个商品和那个商品到底哪个更适合我的肤质」），Agent给的是泛泛的对比，没有真正帮用户做决策。用户只能自己去小红书查攻略。</td>
+                        <td>「可用率」通常只衡量系统是否正常响应、没有错误，<strong>不衡量响应是否真正解决了用户的问题</strong>。这就像餐厅的上菜速度很快，但菜不好吃——只看上菜速度永远发现不了问题。</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>正确的指标体系应该是「分层 + 分场景 + 看结果」</h3>
+            <p>只关注整体可用率是一个<strong>指标懒惰</strong>的问题。真正健康的监控体系至少需要：</p>
+            <ol>
+                <li><strong>按场景分层：</strong>高频简单场景、中频中等场景、低频复杂场景分别监控可用率和用户满意度</li>
+                <li><strong>按用户分层：</strong>新用户/老用户、高活跃/低活跃、不同年龄段，分别看指标</li>
+                <li><strong>引入结果指标：</strong>「任务解决率」（用户的问题是否真的被解决了）比「可用率」更有意义。可以通过会话结束后的满意度调研、人工抽样评估、用户是否在24h内重新发起相同问题（重复求助率）来衡量</li>
+                <li><strong>监控最差切片：</strong>不仅要看平均值，还要主动寻找表现最差的10%场景和最差的10%用户群体，并专项优化</li>
+            </ol>
+
+            <div class="highlight-box">
+                <p><strong>一句话总结：</strong>整体可用率让你以为自己做得不错，直到你发现高价值用户在默默流失、弱势群体在被系统性忽视、而你的迭代方向完全被辛普森悖论误导。好的指标体系不追求一个漂亮的数字，而是追求<strong>让坏消息尽快暴露</strong>。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== 六、Agent设计 ==================== -->
+<section class="category">
+    <div class="category-header">
+        <span class="category-num">六</span>
+        <span class="category-title">Agent设计</span>
+        <span class="category-subtitle">选择第 2 题</span>
+    </div>
+
+    <div class="question-card">
+        <span class="question-label">题目 2</span>
+        <div class="question-text">
+            对一个自媒体视频的最高赞赏，就是发朋友圈/朋友。同理，一个购物Agent，要设计什么样的功能，用户会很乐意发朋友圈/朋友呢？
+        </div>
+
+        <div class="answer-section">
+            <h3>核心洞察：人们分享的不是工具，而是「我」</h3>
+            <p>用户分享购物Agent的本质动机不是推荐工具，而是<strong>展示自己的某个侧面</strong>——我很会省钱、我品味独特、我发现了宝藏、我比朋友聪明。因此，设计的出发点不是「让Agent更好用」，而是<strong>「让用户在使用Agent的过程中，产生值得炫耀的自我表达素材」</strong>。</p>
+
+            <h3>四个让用户主动分享的功能设计</h3>
+
+            <table class="answer-table">
+                <thead>
+                    <tr>
+                        <th style="width:8%">编号</th>
+                        <th style="width:18%">功能</th>
+                        <th style="width:16%">分享动机</th>
+                        <th style="width:28%">具体设计</th>
+                        <th style="width:30%">朋友圈会发什么</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1</strong></td>
+                        <td><strong>「AI砍价战绩」<br>生成分享卡片</strong></td>
+                        <td><span class="tag accent">省钱达人</span><br>展示自己的精明</td>
+                        <td>
+                            当用户通过Agent完成比价/砍价/找优惠券后，自动生成一张精美的战绩卡片：<br>
+                            · 原价 vs 实付价的视觉对比<br>
+                            · Agent帮用户找了多少张优惠券<br>
+                            · 跨了多少个平台比价<br>
+                            · 一条有趣的总结文案（如"你的Agent替你跑了7个平台，省下的钱够买3杯奶茶"）
+                        </td>
+                        <td style="font-size:14px;">
+                            "我的AI购物助理也太拼了，帮我跨了7个平台比价，同一台洗衣机省了800块 🤯 感觉自己以前都在裸买"<br>
+                            <span style="color:#999;">[配图：AI生成的省钱战绩卡片]</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>2</strong></td>
+                        <td><strong>「我的购物人格」<br>年度/季度报告</strong></td>
+                        <td><span class="tag accent">自我认知</span><br>展示独特的消费人格</td>
+                        <td>
+                            基于用户通过Agent的购物行为，生成一份有趣的「购物人格分析」：<br>
+                            · 你的购物人格：例如「冷静的数据派」（每次买前要求对比5+参数）、「冲动美学猎人」（买的东西颜值分都超高）<br>
+                            · 年度最明智的一笔消费<br>
+                            · 你和全国用户的趣味对比（如"你比92%的人更在意性价比"）
+                        </td>
+                        <td style="font-size:14px;">
+                            "年度购物人格：冷静的数据派 📊 我的Agent说我每次买东西都要对比5个以上的参数，比98%的人更纠结。但年度最值的一笔——那个对比了17款才下单的人体工学椅，确实救了老腰 😂"<br>
+                            <span style="color:#999;">[配图：购物人格分析长图]</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>3</strong></td>
+                        <td><strong>「帮我选」决策树<br>分享投票</strong></td>
+                        <td><span class="tag accent">社交互动</span><br>让朋友参与自己的决策</td>
+                        <td>
+                            当用户在两三个商品间纠结时，Agent生成一个<strong>可分享的决策卡片</strong>（类似投票），包含：<br>
+                            · 几个选项的关键参数对比（Agent已整理好）<br>
+                            · 一个投票按钮，朋友可以投票给建议选项<br>
+                            · 朋友投票后可以看到「多少人站你这边」<br>
+                            · Agent可以帮朋友也生成一个推荐
+                        </td>
+                        <td style="font-size:14px;">
+                            "救命，三款咖啡机纠结一周了，我的AI助理把参数都扒干净了还是选不出来 😇 来帮我投个票，选完请你喝第一杯！"<br>
+                            <span style="color:#999;">[配图：交互式投票卡片，含三款咖啡机的核心参数对比]</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>4</strong></td>
+                        <td><strong>「宝藏发现」<br>小众好物故事</strong></td>
+                        <td><span class="tag accent">品味展示</span><br>展示发现美的能力</td>
+                        <td>
+                            当Agent帮用户发现了一个小众/冷门但高度匹配的好物时（比如一个评分很高但知名度低的小众品牌），自动生成「发现故事」卡片：<br>
+                            · 这个商品为什么匹配你（基于对你的理解）<br>
+                            · 它在什么圈子里口碑很好<br>
+                            · 一个精美的商品展示图<br>
+                            · 「只有X%的人知道这个品牌」的稀缺性标签
+                        </td>
+                        <td style="font-size:14px;">
+                            "我的AI购物助理给我推了一个北欧小众香薰，说因为它和我之前买的5件东西风格高度一致……它比我自己还懂我的审美 🥲 而且全淘宝只有3%的人知道这个牌子"<br>
+                            <span style="color:#999;">[配图：宝藏发现卡片，商品展示+风格匹配分析]</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>设计原则：从功能到社交货币</h3>
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="step-num">1</div>
+                    <div class="step-title">情绪峰值</div>
+                    <div class="step-desc">在用户最爽的时刻（省了大钱、发现了宝藏）触发分享</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-num">2</div>
+                    <div class="step-title">零编辑成本</div>
+                    <div class="step-desc">Agent预生成分享图和文案，用户一键发送</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-num">3</div>
+                    <div class="step-title">展示自我</div>
+                    <div class="step-desc">每张分享卡片都在帮用户说「我是这样的人」</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-num">4</div>
+                    <div class="step-title">社交钩子</div>
+                    <div class="step-desc">设计朋友可以参与的互动（投票、帮选），而不是单向炫耀</div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>设计哲学：</strong>龙虾之所以火，不是因为它技术最强，而是因为它把「演示」做好了——让人一眼就能看懂它在做什么，并且想转发给别人看。购物Agent的分享功能同理：不是让用户分享Agent本身，而是<strong>让Agent帮用户生成值得分享的「关于我」的内容</strong>。当用户的朋友看到省钱战绩或购物人格后问「这是什么App？」，增长飞轮就转起来了。</p>
+            </div>
+
+            <h3>衡量指标</h3>
+            <ul>
+                <li><strong>分享率：</strong>完成购物后生成分享卡片的用户中，实际分享的比例（目标 > 15%）</li>
+                <li><strong>分享回流率：</strong>通过朋友分享链接进来的新用户比例（衡量社交裂变效率）</li>
+                <li><strong>分享内容多样性：</strong>不同功能（省钱战绩/购物人格/决策投票/宝藏发现）的分享占比，避免过度依赖单一类型</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>2026年产品笔试题（A）· 共7题作答</p>
+        <p style="margin-top:8px;">需求分析 Q1 · 交互设计 Q（微信）· 数据技术 Q2 · 估算 Q2 · 统计学 Q1+Q2 · Agent设计 Q2</p>
+    </div>
+</footer>
+
+</body>
+</html>
