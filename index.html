@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2026年产品笔试题（A）</title>
+<meta name="author" content="林皓天">
+<meta name="copyright" content="Copyright 2026 林皓天. All rights reserved.">
+<meta name="description" content="2026年产品笔试题（A）答题卷 - 林皓天">
+<title>2026年产品笔试题（A）- 林皓天</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600;700&display=swap');
 
@@ -64,6 +67,10 @@
     text-transform: uppercase;
     color: var(--text-muted);
     margin-bottom: 12px;
+  }
+  .author-line {
+    font-size: 15px; color: var(--text-secondary);
+    margin-top: 4px; font-weight: 500;
   }
   .header h1 {
     font-size: 34px;
@@ -293,15 +300,86 @@
     .header { border-color: #ddd; }
     .answer-table th { background: #f5f5f5; }
     .callout { background: #f9f9f9; border-color: #ddd; }
+    .print-watermark { display: block; }
+    .watermark-overlay { display: block; }
+  }
+
+  /* ── Watermark ── */
+  .watermark-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 9999;
+    opacity: 0.025;
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 120px,
+      rgba(255,255,255,0.3) 120px,
+      rgba(255,255,255,0.3) 240px
+    );
+  }
+  .watermark-overlay::after {
+    content: '';
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 120px; font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    white-space: nowrap;
+  }
+  .print-watermark {
+    display: none;
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 99999;
+    opacity: 0.06; font-family: 'JetBrains Mono', monospace;
+    font-size: 14px; color: #000;
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 80px,
+      currentColor 80px,
+      currentColor 82px
+    );
+  }
+  .print-watermark::after {
+    content: '林皓天 · 2026产品笔试答案 · gnomeshgh0714.github.io/product-exam-2026';
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%) rotate(-25deg);
+    font-size: 60px; white-space: nowrap; font-weight: 700;
   }
 </style>
+<script>
+  // ── 复制时自动附加署名 ──
+  document.addEventListener('copy', function(e) {
+    var sel = window.getSelection().toString();
+    if (sel.length > 30) {
+      var attr = '\n\n—— 林皓天，2026年产品笔试题（A）答卷\nhttps://gnomeshgh0714.github.io/product-exam-2026/';
+      e.clipboardData.setData('text/plain', sel + attr);
+      e.preventDefault();
+    }
+  });
+
+  // ── 禁止拖拽保存图片类内容 ──
+  document.addEventListener('dragstart', function(e) { e.preventDefault(); });
+
+  // ── 控制台版权声明 ──
+  console.log('%c 林皓天 %c 2026产品笔试题（A）答卷 ',
+    'font-size:24px;font-weight:bold;color:#58a6ff;',
+    'font-size:14px;color:#8b949e;');
+  console.log('%chttps://gnomeshgh0714.github.io/product-exam-2026/',
+    'color:#a371f7;');
+  console.log('%c本文档著作权归作者所有。如您通过非授权渠道获取，请通过上述网址查看原始版本。',
+    'color:#d2991d;font-size:13px;');
+</script>
 </head>
 <body>
+<div class="watermark-overlay"></div>
+<div class="print-watermark"></div>
 
 <header class="header">
   <div class="container">
     <div class="prefix">Product Management · Written Exam</div>
     <h1>2026年产品笔试题（A）</h1>
+    <div class="author-line">林皓天</div>
     <div class="meta">
       <span><span class="dot blue"></span> 7 Questions</span>
       <span><span class="dot purple"></span> June 2026</span>
@@ -883,8 +961,9 @@
 
 <footer class="footer">
   <div class="container">
-    <p>2026年产品笔试题（A）&nbsp;·&nbsp;7 Questions</p>
+    <p>&copy; 2026 林皓天 &nbsp;·&nbsp; All Rights Reserved</p>
     <p style="margin-top:6px;font-size:12px;">01 需求分析 &nbsp;·&nbsp; 02 交互设计 &nbsp;·&nbsp; 03 数据技术 &nbsp;·&nbsp; 04 估算 &nbsp;·&nbsp; 05 统计学 &nbsp;·&nbsp; 06 Agent设计</p>
+    <p style="margin-top:6px;font-size:11px;color:var(--text-muted);">本文档著作权归作者所有。如需引用，请注明出处并附链接。</p>
   </div>
 </footer>
 
